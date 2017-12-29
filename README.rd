@@ -8,6 +8,7 @@ There are three of exercises at the end of each chapter:
   Reinforcement
   Creativity
   Project
+
 So for Creativity problems the exercises are numbered C-<chapter>.<exercise-number> and Project exercises are numbered P-<chapter>-<exercise-number>.
 
 The reason for the various versions is simply so I can track when I have approached each individual exercise in more than one manner. Version one of an exercises solution will be my initial run at the problem and the highest numbered version will (generally) be my final stab at a given exercise. This will also typically be the solution I have found that is the most streamlined for my current understanding of Python at the time the particular solution was created. This means it will not  necessarily be the best possible solution.
