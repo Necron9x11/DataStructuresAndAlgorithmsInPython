@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 # Data Structures & Algorithms in Python - Goodrich
-# Chapter 1 | Exercise R-1.3
+# Chapter 1 | Exercise R-1.3 version 1.1
 #
 # Write a short Python function, minmax(data), that takes a sequence of 
 # one or more numbers, and returns the smallest and largest numbers, in the
@@ -24,7 +24,7 @@ DEBUG = True
 
 # Configure argument parser
 parser = argparse.ArgumentParser('Takes one argument, "data" which is a list of numbers of any length >= 2. Returns a tuple of length 2 containing the smallest and largest number in the set.')
-parser.add_argument("data", help="a list of >= 2 numbers .")
+parser.add_argument("data", help="a list of >= 2 numbers enclosed in quotes using spaces or commas as delimiters")
 args = parser.parse_args()
 
 # Display proof that the cli argument is passed in as a string. 
@@ -96,5 +96,6 @@ def minmax(data_in):
         print('DBG: After conversion elements in list are type {}'.format(type(data_in[0])))
     return lowhigh
 
-print(minmax(some_list_data))
+if __name__ == '__main__':
+    print(minmax(some_list_data))
 

@@ -20,11 +20,13 @@ DEBUG_FUNCTION = False
 
 # Configure argument parser
 parser = argparse.ArgumentParser('Takes one argument, "data" which is a list of numbers of any length >= 2. Returns a tuple of length 2 containing the smallest and largest number in the set.')
-parser.add_argument("data", type=int, nargs="+", help="a list of >= 2 numbers .")
+parser.add_argument("data", type=int, nargs="+", help="a list of >= 2 numbers enclosed in quotes using spaces or commas as delimiters")
+parser.add_argument("-d", "--debug", action="store_true", help="include to enable debugging")
+parser.add_argument("-df", "--debug_function", action="store_true", help="include to enable debugging")
 args = parser.parse_args()
 
 # Display proof that the cli argument is passed in as a list. 
-if DEBUG:
+if args.debug:
     print('\nDBG: {} passed into "args.data" from command line'.format(args.data))
     print('DBG: As passed in, the argument "data" is type {}'.format(type(args.data)))
     
@@ -38,7 +40,7 @@ if len(args.data) < 2:
 # list elements which, after sorting, will be the min and max values.
 
 def minmax(data_in):
-    if DEBUG_FUNCTION:
+    if args.debug_function:
         print('\nDBG: Data passed into "minmax()" is type {}'.format(type(data_in))) 
         data_in.sort()
         print('DBG: Result of "data_in.sort()" is {}'.format(data_in))
@@ -47,8 +49,9 @@ def minmax(data_in):
     lowhigh = data_in[0],data_in[-1]
     return lowhigh
 
-print(minmax(args.data))
+if __name__ == '__main__':
+    print(minmax(args.data))
 
-if DEBUG:
-    print(type(minmax(args.data)))
+    if args.debug:
+        print(type(minmax(args.data)))
 

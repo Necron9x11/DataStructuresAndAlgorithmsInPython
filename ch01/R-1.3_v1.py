@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 # Data Structures & Algorithms in Python - Goodrich
-# Chapter 1 | Exercise R-1.3
+# Chapter 1 | Exercise R-1.3 version 1
 #
 # Write a short Python function, minmax(data), that takes a sequence of 
 # one or more numbers, and returns the smallest and largest numbers, in the
@@ -24,11 +24,12 @@ DEBUG = True
 
 # Configure argument parser
 parser = argparse.ArgumentParser('Takes one argument, "data" which is a list of numbers of any length >= 2. Returns a tuple of length 2 containing the smallest and largest number in the set.')
-parser.add_argument("data", help="a list of >= 2 numbers .")
+parser.add_argument("data", help="a list of >= 2 numbers enclosed in quotes using spaces or commas as delimiters.")
+parser.add_argument("-d", "--debug", action="store_true", help="include to enable debugging")
 args = parser.parse_args()
 
 # Display proof that the cli argument is passed in as a string. 
-if DEBUG:
+if args.debug:
     print('\nDBG: {} passed into "args.data" from command line'.format(args.data))
     print('DBG: As passed in, the argument "data" is type {}'.format(type(args.data)))
 
@@ -94,7 +95,7 @@ else:
 if len(some_list_data) < 3:
     print('Requires a minimum of two numbers to be supplied as input. ')
 
-if DEBUG:
+if args.debug:
     print('\nDBG: Variable some_list_data, created with "list(args.data) is type {}"'.format(type(some_list_data)))
     print('DBG: Variable some_list_data == {}'.format(some_list_data))
 
@@ -103,7 +104,7 @@ if DEBUG:
 # list elements which, after sorting, will be the min and max values.
 
 def minmax(data_in):
-    if DEBUG:
+    if args.debug:
         print('\nDBG: Data passed into "minmax()" is type {}'.format(type(data_in))) 
         data_in.sort()
         print('DBG: Result of "data_in.sort()" is {}'.format(data_in))
@@ -111,10 +112,11 @@ def minmax(data_in):
     data_in = [int(x) for x in data_in]
     data_in.sort()
     lowhigh = data_in[0],data_in[-1]
-    if DEBUG:
+    if args.debug:
         print('\nDBG: Convert list elements to type int with: "data_in = [int(x) for x in data_in]"'.format())
         print('DBG: After conversion elements in list are type {}'.format(type(data_in[0])))
     return lowhigh
 
-print(minmax(some_list_data))
+if __name__ == '__main__':
+    print(minmax(some_list_data))
 
