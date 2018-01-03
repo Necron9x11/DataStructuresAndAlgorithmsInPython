@@ -3,7 +3,7 @@
 # Data Structures & Algorithms in Python - Goodrich
 # Chapter 1 | Exercise R-1.10 version 2
 #
-# What parameters should be sent to the rnage constructor, to produce a
+# What parameters should be sent to the range constructor, to produce a
 # range with values 8, 6, 4, 2, 0, -2, -4, -6, -8?
 #
 # Author: Daniel Raphael
