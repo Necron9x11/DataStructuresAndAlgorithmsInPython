@@ -1,0 +1,34 @@
+#!/usr/bin/env python3
+
+# Data Structures & Algorithms in Python - Goodrich
+# Chapter 1 | Exercise R-1.10 version 1
+#
+# What parameters should be sent to the rnage constructor, to produce a
+# range with values 8, 6, 4, 2, 0, -2, -4, -6, -8?
+#
+# Author: Daniel Raphael
+#
+
+import argparse
+import sys
+
+# Configure argument parser
+parser = argparse.ArgumentParser('Accepts no input. Generates a predefined series of numbers using the range function.')
+# parser.add_argument("n", type=int, help="a positive integer.")
+parser.add_argument("-d", "--debug", action="store_true", help="include to enable debugging")
+args = parser.parse_args()
+
+def create_prescribed_range():
+     my_list = [x for x in range(50, 90, 10)]
+
+
+    # if args.debug:
+    #    for z in my_other_list:
+    #        print(z)
+    #        # print('my_other_list == {}'.format(my_other_list))
+    #
+
+    return my_list
+
+if __name__ == '__main__':
+    print(create_prescribed_range())
